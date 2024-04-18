@@ -83,7 +83,7 @@ body.lock {
   overflow: hidden;
 }
 ._container{
-  max-width: 1460px;
+  max-width: 1220px;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -101,7 +101,7 @@ body.lock {
   left: 0;
   object-fit: cover;
 }
-.title h1{
+.title {
   font-size: clamp(50px, 10vw, 100px);
   line-height: 100%;
   color: var(--color-black);
@@ -111,7 +111,7 @@ body.lock {
   1vw = 16px
   100px / 16px = 6.25vw
   */
-.subtitle h2{
+.subtitle {
   font-size: clamp(50px, 10vw, 100px);
   line-height: 100%;
   color: #000000;
@@ -663,6 +663,8 @@ form{
   .header__burger{
     z-index: 2;
     cursor: pointer;
+    width: 24px;
+    height: 24px;
   }
   .header__burger span {
     height: 1px;
@@ -684,15 +686,15 @@ form{
     left: 50%;
     top: 62%;
   }
-  .header__burger._active span:nth-child(2){
+  .header__burger-wrapper._active span:nth-child(2){
     opacity: 0;
   }
-  .header__burger._active span:first-child{
+  .header__burger-wrapper._active span:first-child{
     transform: rotate(-45deg);
     left: 30%;
     top: 50%;
   }
-  .header__burger._active span:last-child{
+  .header__burger-wrapper._active span:last-child{
     transform: rotate(45deg);
     left: 30%;
     top: 50%;

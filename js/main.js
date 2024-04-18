@@ -14,7 +14,7 @@
 
 
 //------------------------------------------------------------------------Меню-Бургер
-const burgerMenu = document.querySelector('.header__burger');
+const burgerMenu = document.querySelector('.header__burger-wrapper');
 const menuBody= document.querySelector('.menu');
 
 if(burgerMenu) {
