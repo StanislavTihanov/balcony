@@ -118,7 +118,9 @@ body.lock {
 }
 :root {
   --color-white: #FFFFFF;
-  --color-black: #000000;
+  --color-black: #1D1C18;
+  --color-orange: #E4641D;
+  --color-brown: #3B241A;
 }
 /*---------------------------------------header----------------------*/
 .header__burger-wrapper {
@@ -151,9 +153,6 @@ body.lock {
   height: 20px;
 }
 
-.bg {
-  background-color: #B6D139;
-}
 /*---------------------------------------header----------------------*/
 
 /*---------------------------------------homepage----------------------*/
