@@ -340,6 +340,7 @@ const mainSwiper = new Swiper('.main__swiper', {
   loop: true,
   slidesPerView: 2,
   spaceBetween: 20,
+  speed: 1000,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
@@ -348,7 +349,16 @@ const mainSwiper = new Swiper('.main__swiper', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-  speed: 2000,
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
+    },
+    // when window width is >= 640px
+    1200: {
+      slidesPerView: 2,
+    }
+  }
 });
 //------------------------------------------------------------------------Слайдер
 
