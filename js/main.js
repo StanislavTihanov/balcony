@@ -11,7 +11,20 @@
 //}
 //------------------------------------------------------------------------preloader
 
+const openHeaderMenu = document.querySelector('.header__services-button');
+const headerMenuList = document.querySelector('.header__list-wrapper');
 
+openHeaderMenu.addEventListener('click', () => {
+ headerMenuList.classList.toggle('open-list');
+ openHeaderMenu.classList.toggle('open-arrow');
+});
+
+document.addEventListener('click', (e) => {
+ if (!headerMenuList.contains(e.target) && !openHeaderMenu.contains(e.target)) {
+    headerMenuList.classList.remove('open-list');
+    openHeaderMenu.classList.remove('open-arrow');
+ }
+});
 
 //------------------------------------------------------------------------Меню-Бургер
 const burgerMenu = document.querySelector('.header__burger-wrapper');
@@ -29,7 +42,7 @@ document.addEventListener ('click', (e) => {
     menuBody.classList.remove('_active');
     burgerMenu.classList.remove('_active');
   }
-})
+});
 //------------------------------------------------------------------------закрытие меню при клике вне его
 
 
@@ -322,22 +335,21 @@ if (menuLinks.length > 0) {
 
 
 //------------------------------------------------------------------------Слайдер
-//const swiper = new Swiper('.swiper', {
-//  direction: 'horizontal',
-//  loop: true,
-//  pagination: {
-//    el: '.swiper-pagination',
-//    clickable: true,
-//  },
-//  navigation: {
-//    nextEl: '.swiper-button-next',
-//    prevEl: '.swiper-button-prev',
-//  },
-//  autoplay: {
-//    delay: 2000,
-//  },
-//  speed: 2000,
-//});
+const mainSwiper = new Swiper('.main__swiper', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 2,
+  spaceBetween: 20,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  speed: 2000,
+});
 //------------------------------------------------------------------------Слайдер
 
 
@@ -444,31 +456,29 @@ if (menuLinks.length > 0) {
 //------------------------------------------------------------------------popup
 
 //------------------------------------------------------------------------Accordion
-//const titles = document.querySelectorAll('.accordion__title');
-//const contents = document.querySelectorAll('.accordion__content');
-//
-//titles.forEach(item => item.addEventListener('click', () => {
-//    const activeContent = document.querySelector('#' + item.dataset.tab);
-//
-//    if (activeContent.classList.contains('active')) {
-//        activeContent.classList.remove('active');
-//        item.classList.remove('active');
-//        activeContent.style.maxHeight = 0;
-//    } else {
-//      contents.forEach(element => {
-//        element.classList.remove('active');
-//        element.style.maxHeight = 0;
-//      });
-//      titles.forEach(element => element.classList.remove('active'));
-//
-//      item.classList.add('active');
-//      activeContent.classList.add('active');
-//      activeContent.style.maxHeight = activeContent.scrollHeight + 'px';
-//    }
-//}));
-//document.querySelector('[data-tab="tab-1').classList.add('active');
-//document.querySelector('#tab-1').classList.add('active');
-//document.querySelector('#tab-1').style.maxHeight = document.querySelector('#tab-1').scrollHeight + 'px';
+const titles = document.querySelectorAll('.accordion__title');
+const contents = document.querySelectorAll('.accordion__content');
+
+titles.forEach(item => item.addEventListener('click', () => {
+    const activeContent = document.querySelector('#' + item.dataset.tab);
+
+    if (activeContent.classList.contains('active')) {
+        activeContent.classList.remove('active');
+        item.classList.remove('active');
+        activeContent.style.maxHeight = 0;
+    } else {
+      contents.forEach(element => {
+        element.classList.remove('active');
+        element.style.maxHeight = 0;
+      });
+      titles.forEach(element => element.classList.remove('active'));
+
+      item.classList.add('active');
+      activeContent.classList.add('active');
+      activeContent.style.maxHeight = activeContent.scrollHeight + 'px';
+    }
+}));
+
 //------------------------------------------------------------------------Accordion
 
 
