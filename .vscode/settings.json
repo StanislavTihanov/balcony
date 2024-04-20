@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.port": 5509
+    "liveServer.settings.port": 5509,
+    "editor.parameterHints.enabled": false,
+    "editor.hover.enabled": false,
+    "editor.quickSuggestions.enabled": false,
 }

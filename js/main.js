@@ -360,7 +360,46 @@ const mainSwiper = new Swiper('.main__swiper', {
     }
   }
 });
+
+
+const worksSlider = new Swiper('.works__slider', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 20,
+  speed: 1000,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+
+var designSlider = new Swiper('.design__slider', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 2,
+  spaceBetween: 20,
+  speed: 1000,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+ });
+
+
+
+
 //------------------------------------------------------------------------Слайдер
+
+//------------------------------------------------------------------------добавление контент при клике на кнопку
+$(function(){
+  $('.works__button-more').click(function(){
+      $('.works__body-more').toggleClass('more');
+      $('.works__button-more').toggleClass('close');
+  })
+ });
+//------------------------------------------------------------------------добавление контент при клике на кнопку
 
 
 //------------------------------------------------------------------------popup
