@@ -375,20 +375,62 @@ const worksSlider = new Swiper('.works__slider', {
 });
 
 
-var designSlider = new Swiper('.design__slider', {
+const designSlider = new Swiper('.design__slider', {
   direction: 'horizontal',
   loop: true,
-  slidesPerView: 2,
+  slidesPerView: 1,
   spaceBetween: 20,
   speed: 1000,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
  });
 
 
+ const reviewsSlider = new Swiper('.reviews__slider', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 3,
+  spaceBetween: 20,
+  speed: 1000,
+  autoHeight: false,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    640: {
+      slidesPerView: 2,
+    },
+    980: {
+      slidesPerView: 3,
+    }
+  }
+ });
 
+
+//------------------------------------------------------------------------Слайдер
+
+
+
+//------------------------------------------------------------------------Слайдер
+
+ var mixer = mixitup('.design__body', {
+  load: {
+    filter: '.cabinet'
+  },
+  animation: {
+    enable: false
+}
+ });
 
 //------------------------------------------------------------------------Слайдер
 
