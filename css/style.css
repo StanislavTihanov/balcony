@@ -965,37 +965,89 @@ body.lock {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  flex-wrap: wrap;
 }
 .footer__blocks {
   margin-bottom: 40px;
 }
-.footer__block {
+.footer__nav,
+.footer__bottom {
+  border-radius: 15px;
+  border: 1px solid var(--color-white);
+  padding: 25px;
 }
 .footer__title {
+  font-weight: 600;
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 139%;
+  margin-bottom: 25px;
 }
-.footer__nav {
+.footer__nav--mod {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px 80px;
 }
-.footer__list {
+.footer__blocks {
+  gap: 10px 80px;
 }
 .footer__item {
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 144%;
+}
+.footer__item:not(:last-child) {
+  margin-bottom: 20px;
 }
 .footer__contacts {
+  text-align: center;
 }
-.slider__block-button {
+.footer__contacts .footer__title{
+  margin-bottom: 5px;
+}
+.footer__contacts-text {
+  font-weight: 600;
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 139%;
+  margin-bottom: 5px;
+}
+.footer__contacts .slider__block-button{
+  display: block;
+  margin-bottom: 15px;
+}
+.footer__contacts-phone {
+  font-weight: 600;
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 139%;
+  display: block;
+  padding: 10px 0px 15px 0px;
 }
 .footer__bottom {
-  text-align: center;
+  align-items: center;
   margin-bottom: 30px;
+  padding: 25px;
+
 }
 .footer__logo {
+  display: flex;
+  gap: 10px 60px;
+  font-weight: 500;
+  line-height: 143%;
+  color: #B3B3B3;
 }
 .logo {
+  position: relative;
 }
-.footer__messengers {
+.logo::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 30px;
+  top: 5px;
+  right: -30px;
+  background-color: #B3B3B3;
 }
 .footer__text {
   text-align: end;
+  opacity: 0.75;
 }
 /*---------------------------------------footer----------------------------*/
 
@@ -1660,6 +1712,14 @@ form{
   .questions__answers {
     flex-basis: 100%;
   }
+  .footer__body{
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .footer__blocks,
+  .footer__nav--mod {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1731,6 +1791,31 @@ form{
   }
   .accordion__content.active {
     padding: 0px 15px 15px 15px;
+  }
+  .footer__blocks,
+  .footer__nav--mod {
+    flex-wrap: wrap;
+  }
+  .footer__block {
+    flex-basis: 100%;
+  }
+  .footer__contacts {
+    margin: 0 auto;
+  }
+  .footer__bottom {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+  }
+  .footer__logo {
+    font-size: 12px;
+  }
+  .footer__text {
+    font-size: 12px;
+    text-align: center;
+  }
+  .footer {
+    padding: 40px 0px 30px 0px;
   }
 }
 
