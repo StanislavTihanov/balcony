@@ -397,7 +397,7 @@ const worksSlider = new Swiper('.works__slider', {
 const designSlider = new Swiper('.design__slider', {
   direction: 'horizontal',
   loop: true,
-  slidesPerView: 2,
+  slidesPerView: 1,
   spaceBetween: 20,
   speed: 1000,
   navigation: {
@@ -413,6 +413,7 @@ const designSlider = new Swiper('.design__slider', {
     },
   }
  });
+
 
 
  const reviewsSlider = new Swiper('.reviews__slider', {
@@ -471,8 +472,6 @@ const designSlider = new Swiper('.design__slider', {
 
 //------------------------------------------------------------------------Слайдер
 
-
-
 //------------------------------------------------------------------------Слайдер
 
  var mixer = mixitup('.design__body', {
@@ -480,7 +479,8 @@ const designSlider = new Swiper('.design__slider', {
     filter: '.cabinet'
   },
   animation: {
-    enable: false
+    enable: false,
+    nudge: false,
   }
  });
 
@@ -584,8 +584,8 @@ document.addEventListener('keydown', function(e) {
  }
 });
 
-
 //------------------------------------------------------------------------popup
+
 
 //------------------------------------------------------------------------Accordion
 const titles = document.querySelectorAll('.accordion__title');
@@ -610,7 +610,9 @@ titles.forEach(item => item.addEventListener('click', () => {
       activeContent.style.maxHeight = activeContent.scrollHeight + 'px';
     }
 }));
-
+document.querySelector('[data-tab="tab-1').classList.add('active');
+document.querySelector('#tab-1').classList.add('active');
+document.querySelector('#tab-1').style.maxHeight = document.querySelector('#tab-1').scrollHeight + 'px';
 //------------------------------------------------------------------------Accordion
 
 

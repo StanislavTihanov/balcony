@@ -3,9 +3,9 @@
 *:before,
 *:after {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
 :focus,
-:active {outline: none;}
+:active {outline: none; -webkit-tap-highlight-color: transparent;}
 a:focus,
-a:active {outline: none;}
+a:active {outline: none; -webkit-tap-highlight-color: transparent;}
 nav,
 footer,
 header,
@@ -130,11 +130,7 @@ body.lock {
   padding: 20px 43px;
   border-radius: 10px;
   display: inline-block;
-}
-.button:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  background-color: inherit !important;
+  -webkit-tap-highlight-color: transparent;
 }
 :root {
   --color-white: #FFFFFF;
@@ -151,10 +147,11 @@ body.lock {
   position: fixed;
   width: 100%;
   z-index: 999;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .logo {
   z-index: 5;
+  -webkit-tap-highlight-color: transparent;
 }
 .header__block--mod {
   flex-basis: 270px;
@@ -343,7 +340,6 @@ body.lock {
 }
 .slider__block-button:focus {
   outline: none;
-  background-color: inherit;
 }
 .main-section__slider .main__swiper {
   position: relative;
@@ -446,6 +442,9 @@ body.lock {
 .design__slider .swiper-button-next {
   right: 40px;
   top: 50%;
+}
+.swiper-button-next:focus {
+  outline: none;
 }
 .works__bottom-inner {
   display: flex;
@@ -723,6 +722,13 @@ body.lock {
   display: none;
 }
 
+.des__slider .swiper-pagination{
+  position: static;
+
+}
+
+
+
 /*---------------------------------------design----------------------------*/
 
 
@@ -875,8 +881,7 @@ body.lock {
   font-weight: 500;
   margin-bottom: 20px;
   display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 .send-form {
   display: block;
@@ -921,6 +926,8 @@ body.lock {
   border-radius: 4px;
   vertical-align: sub;
   margin-right: 5px;
+  cursor: pointer;
+  flex: 0 0 auto;
 }
 .custom-checkbox::before {
   position: absolute;
@@ -956,7 +963,7 @@ body.lock {
   line-height: 135%;
   cursor: pointer;
   color: var(--color-black);
-  padding: 17px;
+  padding: 17.5px;
 }
 .accordion__title span {
   position: relative;
@@ -1366,7 +1373,6 @@ body.lock {
   line-height: 134%;
   text-transform: none;
 }
-
 .policy__block {
   margin-bottom: 40px;
 }
@@ -1438,6 +1444,7 @@ body.lock {
   font-size: 70px;
   transform: rotate(45deg);
   color: #E8D5BC;
+  -webkit-tap-highlight-color: transparent;
 }
 .popup__form .form {
   background-color: inherit;
