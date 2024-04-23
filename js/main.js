@@ -8,7 +8,7 @@ jQuery(document).ready(function () {
     var form = jQuery(this).closest('form');
     
     if ( form.valid() ) {
-      form.css('opacity','.5');
+      //form.css('opacity','.5');
       var actUrl = form.attr('action');
 
       jQuery.ajax({
@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
         success: function(data) {
           form.html(data);
           form.css('opacity','1');
-                  //form.find('.status').html('форма отправлена успешно');
+                  //form.find('.status').html('Заявка отправлена <p>Перезвоним вам в ближайшее время</p> Спасибо!');
                   //$('#myModal').modal('show') // для бутстрапа
         },
         error:	 function() {
@@ -28,8 +28,6 @@ jQuery(document).ready(function () {
       });
     }
   });
-
-
 });
 
 const openHeaderMenu = document.querySelector('.header__services-button');
@@ -449,13 +447,25 @@ const designSlider = new Swiper('.design__slider', {
  const projectsSlider = new Swiper('.projects__slider', {
   direction: 'horizontal',
   loop: true,
-  slidesPerView: 1,
+  slidesPerView: 2,
   spaceBetween: 20,
   speed: 1000,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: false,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    1200: {
+      slidesPerView: 2,
+    }
+  }
 });
 
 
@@ -481,7 +491,12 @@ $(function(){
   $('.works__button-more').click(function(){
       $('.works__body-more').toggleClass('more');
       $('.works__button-more').toggleClass('close');
-  })
+      $('.works__btn-more').toggleClass('btn-open');
+  });
+  $('.works__btn-more').click(function(){
+    $('.works__body-more-two').toggleClass('more');
+    $('.works__btn-more').toggleClass('close');
+});
  });
 //------------------------------------------------------------------------добавление контент при клике на кнопку
 
