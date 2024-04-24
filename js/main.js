@@ -471,6 +471,9 @@ const designSlider = new Swiper('.design__slider', {
 
 
 //------------------------------------------------------------------------Слайдер
+//-----убираем дергающийся скролл в фансибокс
+$.fancybox.defaults.hideScrollbar = false;
+//-----убираем дергающийся скролл в фансибокс
 
 //------------------------------------------------------------------------Слайдер
 
@@ -587,6 +590,11 @@ document.addEventListener('keydown', function(e) {
 //------------------------------------------------------------------------popup
 
 
+
+
+
+
+
 //------------------------------------------------------------------------Accordion
 const titles = document.querySelectorAll('.accordion__title');
 const contents = document.querySelectorAll('.accordion__content');
@@ -610,8 +618,6 @@ titles.forEach(item => item.addEventListener('click', () => {
       activeContent.style.maxHeight = activeContent.scrollHeight + 'px';
     }
 }));
-document.querySelector('[data-tab="tab-1').classList.add('active');
-document.querySelector('#tab-1').classList.add('active');
 document.querySelector('#tab-1').style.maxHeight = document.querySelector('#tab-1').scrollHeight + 'px';
 //------------------------------------------------------------------------Accordion
 
