@@ -408,7 +408,7 @@ const designSlider = new Swiper('.design__slider', {
     320: {
       slidesPerView: 1,
     },
-    880: {
+    980: {
       slidesPerView: 2,
     },
   }
@@ -588,11 +588,6 @@ document.addEventListener('keydown', function(e) {
 });
 
 //------------------------------------------------------------------------popup
-
-
-
-
-
 
 
 //------------------------------------------------------------------------Accordion
