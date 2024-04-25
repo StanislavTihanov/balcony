@@ -19,14 +19,18 @@
     <header class="header lock-padding">
       <div class="header__content _container">
         <div class="header__body">
-          <div class="header__block header__block--mod">
+          <div class="header__block">
             <a class="logo" href="#">
               <img src="images/icons/logo.svg" alt="logo">
             </a>
-             <div class="header__services">
+          </div>
+
+          <nav class="menu" id="menu">
+            <div class="header__services">
               <a class="header__services-button" href="#!">
                 <img src="images/icons/arrow-next.svg" alt="arrow">
-                Услуги
+                <span>Услуги</span>
+                <span>Наши услуги</span>
               </a>
               <div class="header__list-wrapper">
                 <div class="header__list">
@@ -135,9 +139,6 @@
                 </div>
               </div>
              </div>
-          </div>
-
-          <nav class="menu" id="menu">
             <ul class="menu__list">
               <li class="menu__list-item">
                 <a class="menu__link" data-goto=".works" href="#">Наши работы</a>
@@ -152,28 +153,17 @@
                 <a class="menu__link" data-goto=".footer" href="#">Контакты</a>
               </li>
             </ul>
-            <div class="header__messengers header__messengers--mod">
-              <a href="#">
-                <img src="images/icons/icon-whatsapp.svg" alt="icon whatsapp">
-              </a>
-              <a href="#">
-                <img src="images/icons/icon-telegram.svg" alt="icon telegram">
-              </a>
-              <a href="tel:+777777777776">
-                <img src="images/icons/icon-phone.svg" alt="icon phone">
-              </a>
-            </div>
             <div class="header__working-hours--mod">
-              <p>Работаем с 8:00 до 22:00</p>
-              <p>Без праздников и выходных</p>
+              <p>Работаем c 8:00 до 22:00</p>
+              <p>Без праздников и выходных</p>
             </div>
           </nav>
           <div class="header__block">
             <div class="header__messengers">
-              <a href="#">
+              <a href="https://wa.me/+79009231855">
                 <img src="images/icons/icon-whatsapp.svg" alt="icon whatsapp">
               </a>
-              <a href="#">
+              <a href="https://t.me/oknanabalkon">
                 <img src="images/icons/icon-telegram.svg" alt="icon telegram">
               </a>
               <a href="tel:+777777777776">
@@ -181,8 +171,8 @@
               </a>
             </div>
             <div class="header__working-hours">
-              <p>Работаем с 8:00 до 22:00</p>
-              <p>Без праздников и выходных</p>
+              <p>Работаем c 8:00 до 22:00</p>
+              <p>Без праздников и выходных</p>
             </div>
             <div class="header__burger-wrapper">
               <div class="header__burger" id="hamb">
@@ -1355,6 +1345,86 @@
         </div>
       </section>
 
+      <section class="master">
+        <div class="master__content _container">
+          <div class="master__body">
+          <div class="master__info">
+            <div class="subtitle">
+              <h2>Пригласить мастера На замер</h2>
+            </div>
+            <div class="master__text">
+              <p>Заполните простую форму, специалист перезвонит Вам и согласует удобное для Вас время визита.  </p>
+            </div>
+            <div class="master__block">
+              <div class="master__item">
+                <div class="master__item-icon">
+                  <img src="images/icons/master__icon1.svg" alt="icon">
+                </div>
+                <div class="master__item-text">
+                  <h3>В удобное для Вас время</h3>
+                </div>
+              </div>
+              <div class="master__item">
+                <div class="master__item-icon">
+                  <img src="images/icons/master__icon2.svg" alt="icon">
+                </div>
+                <div class="master__item-text">
+                  <h3>Бесплатная консультация</h3>
+                </div>
+              </div>
+              <div class="master__item">
+                <div class="master__item-icon">
+                  <img src="images/icons/master__icon3.svg" alt="icon">
+                </div>
+                <div class="master__item-text">
+                  <h3>Подробная смета</h3>
+                </div>
+              </div>
+            </div>
+            <div class="master__contacts">
+              <div class="master__contacts-title">
+                <h3>Связаться с нами напрямую</h3>
+              </div>
+              <div class="master__contacts-links">
+                <a href="https://wa.me/+79009231855" class="master__contacts-link">
+                  <img src="images/icons/master__icon-w.svg" alt="icon">
+                </a>
+                <a href="https://t.me/oknanabalkon" class="master__contacts-link">
+                  <img src="images/icons/master__icon-t.svg" alt="icon">
+                </a>
+                <a href="tel:+79009231855" class="master__contacts-link">
+                  <img src="images/icons/master__icon-ph.svg" alt="icon">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="master__form">
+            <form class="form" action="server.php" method="post">
+              <h2 class="popup__title">Отправьте заявку и мы оперативно вам перезвоним!</h2>
+              <label class="form__label">
+                Ваше имя
+                <input class="form__label-input" type="text" name="name" placeholder="Например, Александр" required>
+              </label>
+              <label class="form__label">
+                Контактный телефон
+                <input class="form__label-input" type="text" name="phone" placeholder="+7 999 999-99-99" required>
+              </label>
+              <label class="form__label">
+                Сообщение/вопрос
+                <textarea class="form__label-text" name="text" placeholder="Текст сообщения…"></textarea>
+              </label>
+              <label class="form__label--mod">
+                <input class="checkbox" type="checkbox" name="coding-notes" checked>
+                <span class="custom-checkbox"></span>
+                <a href="policy.html">Даю согласие на обработку персональных данных</a>
+              </label>
+              <button type="button" class="send-form popup-form">Отправить</button>
+            </form>
+          </div>
+         </div>
+        </div>
+      </section>
+
       <section class="conditions">
         <div class="conditions__content _container">
           <div class="subtitle">
@@ -1645,7 +1715,6 @@
         </div>
       </section>
 
-      
       <section class="design">
         <div class="design__content _container">
            <div class="subtitle">
@@ -3045,7 +3114,7 @@
                     <a href="#">Пользовательское соглашение</a>
                   </li>
                   <li class="footer__item">
-                    <a href="#">Политика конфиденциальности</a>
+                    <a href="policy.html">Политика конфиденциальности</a>
                   </li>
                 </ul>
               </nav>
@@ -3067,7 +3136,7 @@
                 +7 900 923-18-55
               </a>
              </div>
-            <a class="slider__block-button" href="#">Вызвать замерщика</a>
+            <a class="slider__block-button popup-link" href="#popup">Вызвать замерщика</a>
             <a class="slider__block-button popup-link" href="#popup">Рассчитать стоимость</a>
           </div>
         </div>

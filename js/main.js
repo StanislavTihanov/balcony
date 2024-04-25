@@ -8,7 +8,6 @@ jQuery(document).ready(function () {
     var form = jQuery(this).closest('form');
     
     if ( form.valid() ) {
-      //form.css('opacity','.5');
       var actUrl = form.attr('action');
 
       jQuery.ajax({
@@ -19,8 +18,6 @@ jQuery(document).ready(function () {
         success: function(data) {
           form.html(data);
           form.css('opacity','1');
-                  //form.find('.status').html('Заявка отправлена <p>Перезвоним вам в ближайшее время</p> Спасибо!');
-                  //$('#myModal').modal('show') // для бутстрапа
         },
         error:	 function() {
             form.find('.status').html('серверная ошибка');
@@ -56,12 +53,13 @@ if(burgerMenu) {
     });
 }
 //------------------------------------------------------------------------закрытие меню при клике вне его
-document.addEventListener ('click', (e) => {
-  if (!burgerMenu.contains(e.target)) {
-    menuBody.classList.remove('_active');
-    burgerMenu.classList.remove('_active');
+document.addEventListener('click', (e) => {
+  // Проверяем, содержит ли burgerMenu или burgerMenuList целевой элемент
+  if (!burgerMenu.contains(e.target) && !menu.contains(e.target)) {
+     menuBody.classList.remove('_active');
+     burgerMenu.classList.remove('_active');
   }
-});
+ });
 //------------------------------------------------------------------------закрытие меню при клике вне его
 
 
@@ -97,219 +95,6 @@ if (menuLinks.length > 0) {
 }
 //------------------------------------------------------------------------Прокрутка при клике
 
-
-//------------------------------------------------------------------------Готовые блоки кода
-
-//------------------------------------------------------------------------Quiz
-//const quizBody = document.querySelector('.quiz__body');
-//const quizStart = document.querySelector('.quiz__start');
-//const formQuiz = document.querySelector('.quiz-form');
-//const formItems = formQuiz.querySelectorAll('fieldset');
-//const formBtnNext = formQuiz.querySelectorAll('.quiz-form__btn-next');
-//const formBtnPrev = formQuiz.querySelectorAll('.quiz-form__btn-prev');
-//const overlay = document.querySelector('.overlay');
-
-//const answersObj = {
-//  step0: {
-//    question: '',
-//    answers: [],
-//  },
-//  step1: {
-//    question: '',
-//    answers: [],
-//  },
-//  step2: {
-//    question: '',
-//    answers: [],
-//  },
-//  step3: {
-//    question: '',
-//    answers: [],
-//  },
-//  step4: {
-//    name: "",
-//    phone: "",
-//    email: "",
-//    call: "",
-//  },
-//}
-//
-////отключаем квиз
-//quizBody.style.display = "none";
-//// включаем квиз при клике
-//quizStart.addEventListener('click', () => {
-//  quizBody.style.display = "block";
-//  quizStart.style.display = "none";
-//  questionCounter(1);
-//});
-//
-//// создаем индикатор прогресса и выводим номер текущего вопроса
-//let questionNumb = 1;
-//function questionCounter(index) {
-//
-//  const quizIndicator = document.querySelector('.quiz-indicator');
-//  quizIndicator.innerHTML = `${index} / ${formItems.length}`;
-//
-//  let progress = document.querySelector(".quiz__progress-inner");
-//  progress.style.width = `${Math.round(((index) / formItems.length) * 100)}%`;
-//}
-//
-//// включаем в работу кнопки
-//for(let i = 0; i < formBtnPrev.length; i++) {
-//  formBtnPrev[i].addEventListener('click', (event) => {
-//    event.preventDefault();
-//    formItems[i + 1].style.display = "none";
-//    formItems[i].style.display = "block";
-//    questionNumb--;
-//    questionCounter(questionNumb);
-//  });
-//}
-//
-//formBtnNext.forEach((btn, btnIndex) => {
-//  btn.addEventListener('click', (event) => {
-//    event.preventDefault();
-//    formItems[btnIndex].style.display = "none";
-//    formItems[btnIndex + 1].style.display = "block";
-//    questionNumb++;
-//    questionCounter(questionNumb);
-//    
-//  });
-//  btn.disabled = true;    
-//});
-//
-////перебираем fieldset и выводим первый
-//formItems.forEach((formItem, formItemIndex) => {
-//    if(formItemIndex === 0) {
-//    formItem.style.display = "block";
-//  } else {
-//    formItem.style.display = "none";
-//  }
-//
-//  if(formItemIndex !== formItems.length - 1) {
-//    const inputs = formItem.querySelectorAll("input");
-//    const itemTitle = formItem.querySelector('.quiz-form__title');
-//    
-//    answersObj[`step${formItemIndex}`].question = itemTitle.textContent;
-//
-//    inputs.forEach((input) => {
-//      const parent = input.parentNode;
-//      input.checked = false;
-//      parent.classList.remove(".active-radio");
-//      parent.classList.remove(".active-checkbox");
-//    });
-//  }
-//  
-//    // выбор radio и checkbox
-//    formItem.addEventListener('change', (event) => {
-//      const target = event.target;
-//      const inputsChecked = formItem.querySelectorAll("input:checked");
-//
-//      if(formItemIndex !== formItems.length - 1) {
-//      answersObj[`step${formItemIndex}`].answers.length = 0;
-//      inputsChecked.forEach((inputChecked) => {
-//        answersObj[`step${formItemIndex}`].answers.push(inputChecked.value);
-//      });
-//
-//      if(inputsChecked.length > 0) {
-//        formBtnNext[formItemIndex].disabled = false;
-//      } else {
-//        formBtnNext[formItemIndex].disabled = true;
-//      }
-//      
-//      if (target.classList.contains("quiz-form__radio")) {
-//        const radios = formItem.querySelectorAll(".quiz-form__radio");
-//
-//        radios.forEach(input => {
-//          if(input === target) {
-//            input.parentNode.classList.add(".active-radio");
-//          } else {
-//            input.parentNode.classList.remove(".active-radio");
-//          }
-//        });
-//      } else if (target.classList.contains("quiz-form__checkbox")) {
-//        target.parentNode.classList.toggle(".active-checkbox");
-//      } else {
-//        return;
-//      }
-//    }
-//  });
-//});
-//
-//// сбор и отпрака формы
-//const sendForm = () => {
-//  formQuiz.addEventListener('submit', (event) => {
-//    event.preventDefault();
-//    
-//    answersObj.step4.name = document.getElementById('quiz-name').value;
-//    answersObj.step4.phone = document.getElementById('quiz-phone').value;
-//    answersObj.step4.email= document.getElementById('quiz-email').value;
-//    answersObj.step4.call = document.getElementById('quiz-call').value;
-//    
-//    for (let key in answersObj.step4) {
-//      if (answersObj.step4[key].value === "") {
-//        alert("Введите данные во все поля");
-//      }
-//    }
-//
-//    if (document.getElementById("quiz-policy").checked) {
-//      postData(answersObj)
-//      .then((res) => res.json())
-//      .then((res) => {
-//        if(res["status"] === "ok") {
-//          overlay.style.display = "none";
-//          quizBody.style.display = "none";
-//          quizStart.style.display = "block";
-//          formQuiz.reset();
-//          alert(res["message"]);
-//        } else if (res["status"] === "error") {
-//          alert(res["message"]);
-//        }
-//      });
-//    } else {
-//      alert("Дайте согласие на обработку персональных данных")
-//    }
-//  });
-//};
-//
-//  const postData = (body) => {
-//    return fetch("./server.php", {
-//      method: "POST",
-//      headers: {
-//        "Content-Type": "application/json",
-//      },
-//      body: JSON.stringify(body)
-//    });
-//  };
-//
-//  overlay.style.display = "none";
-//  quizBody.style.display = "none";
-//
-//  const pastTestButton = document.querySelector('.pas__test-button');
-//  pastTestButton.addEventListener("click", () => {
-//    formItems.forEach((formItem, formItemIndex) => {
-//      if (formItemIndex === 0) {
-//        formItem.style.display = "block";
-//      } else {
-//        formItem.style.display = "none";
-//      }
-//      
-//      const inputs = formItem.querySelectorAll("input");
-//      inputs.forEach((input) => {
-//        const parent = input.parentNode;
-//        input.checked = false;
-//        parent.classList.remove("active-radio");
-//        parent.classList.remove("active-checkbox");
-//      });
-//    });
-//    formBtnNext.forEach((btn) => {
-//      btn.disabled = true;
-//    });
-//    overlay.style.display = "block";
-//    quizBody.style.display = "block";
-//  });
-//    sendForm();
-
-//------------------------------------------------------------------------Quiz
 
 //------------------------------------------------------------------------select выпадающий список
 //document.querySelectorAll('.dropdown').forEach(function(dropDownWrapper) {
@@ -475,6 +260,7 @@ const designSlider = new Swiper('.design__slider', {
 $.fancybox.defaults.hideScrollbar = false;
 //-----убираем дергающийся скролл в фансибокс
 
+
 //------------------------------------------------------------------------Слайдер
 
  var mixer = mixitup('.design__body', {
@@ -486,6 +272,7 @@ $.fancybox.defaults.hideScrollbar = false;
     nudge: false,
   }
  });
+
 
 //------------------------------------------------------------------------Слайдер
 
