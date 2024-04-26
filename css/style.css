@@ -2166,6 +2166,9 @@ body.lock {
   .slider__block-inner {
     padding-right: 30px;
   }
+  .works__block .works__bottom {
+    margin: 418px 0px 0px 0px;
+  }
 }
 
 @media (max-width: 400px) {
