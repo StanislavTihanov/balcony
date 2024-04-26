@@ -96,48 +96,6 @@ if (menuLinks.length > 0) {
 //------------------------------------------------------------------------Прокрутка при клике
 
 
-//------------------------------------------------------------------------select выпадающий список
-//document.querySelectorAll('.dropdown').forEach(function(dropDownWrapper) {
-//
-//  const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
-//  const dropDownList = dropDownWrapper.querySelector('.dropdown__list');
-//  const dropDownListItems = dropDownList.querySelectorAll('.dropdown__list-item');
-//  const dropDownInput = dropDownWrapper.querySelector('.dropdown__input-hidden');
-//  
-//  //клик по кнопки. открыть/закрыть
-//  dropDownBtn.addEventListener('click', function () {
-//    dropDownList.classList.toggle('dropdown__list--active');
-//    this.classList.add('dropdown__button--active');
-//  });
-//  //выбор элемента списка, запомнить выбранное значение, закрыть дропдаун
-//  dropDownListItems.forEach(function (listItem) {
-//      listItem.addEventListener('click', function (e) {
-//        e.stopPropagation();
-//        dropDownBtn.innerText = this.innerText;
-//        dropDownBtn.focus();
-//        dropDownInput.value = this.dataset.value;
-//        dropDownList.classList.remove('dropdown__list--active');
-//      })
-//  });
-//  //клик снаружи дропдауна, закрываем его
-//  document.addEventListener('click', function (e) {
-//    if (e.target !== dropDownBtn) {
-//      dropDownList.classList.remove('dropdown__list--active');
-//      dropDownBtn.classList.remove('dropdown__button--active');
-//    }
-//  })
-//  
-//  document.addEventListener('keydown', function (e) {
-//    if (e.key === 'Tab' || e.key === 'Escape') {
-//      dropDownList.classList.remove('dropdown__list--active');
-//      dropDownBtn.classList.remove('dropdown__button--active');
-//    }
-//  })
-//});
-//
-//------------------------------------------------------------------------select выпадающий список
-
-
 //------------------------------------------------------------------------Слайдер
 const mainSwiper = new Swiper('.main__swiper', {
   direction: 'horizontal',
@@ -200,7 +158,6 @@ const designSlider = new Swiper('.design__slider', {
  });
 
 
-
  const reviewsSlider = new Swiper('.reviews__slider', {
   direction: 'horizontal',
   loop: true,
@@ -215,6 +172,7 @@ const designSlider = new Swiper('.design__slider', {
   pagination: {
     el: '.swiper-pagination',
     clickable: false,
+    clickable: true,
   },
   breakpoints: {
     320: {
@@ -243,6 +201,7 @@ const designSlider = new Swiper('.design__slider', {
   pagination: {
     el: '.swiper-pagination',
     clickable: false,
+    clickable: true,
   },
   breakpoints: {
     320: {
@@ -255,26 +214,52 @@ const designSlider = new Swiper('.design__slider', {
 });
 
 
-//------------------------------------------------------------------------Слайдер
+//------------------------------------------------------------------------галерея фансибокс
 //-----убираем дергающийся скролл в фансибокс
 $.fancybox.defaults.hideScrollbar = false;
 //-----убираем дергающийся скролл в фансибокс
 
-
-//------------------------------------------------------------------------Слайдер
-
- var mixer = mixitup('.design__body', {
-  load: {
-    filter: '.cabinet'
-  },
-  animation: {
-    enable: false,
-    nudge: false,
-  }
+$(document).ready(function() {
+ $('[data-fancybox^="gallery"]').fancybox({
+    thumbs : {
+      autoStart : true, // Автоматически показывать миниатюры
+      axis      : 'x', // Показывать миниатюры по вертикали
+      position : 'bottom' // Разместить миниатюры под главным фото
+    }
  });
+});
 
 
-//------------------------------------------------------------------------Слайдер
+//------------------------------------------------------------------------галерея фансибокс
+
+//------------------------------------------------------------------------табы переключение в секции дизайн
+document.addEventListener('DOMContentLoaded', function() {
+  let tabButtons = document.querySelectorAll('.tab-button');
+ 
+  tabButtons.forEach(function(button) {
+     button.addEventListener('click', function() {
+       let tabId = this.getAttribute('data-tab');
+       let tabContent = document.getElementById(tabId);
+ 
+       // Скрываем все вкладки
+       document.querySelectorAll('.tab-content').forEach(function(content) {
+         content.classList.remove('active');
+       });
+ 
+       // Снимаем активное состояние с всех кнопок
+       tabButtons.forEach(function(btn) {
+         btn.classList.remove('active');
+       });
+ 
+       // Показываем выбранную вкладку
+       tabContent.classList.add('active');
+ 
+       // Добавляем активное состояние к выбранной кнопке
+       this.classList.add('active');
+     });
+  });
+ });
+//------------------------------------------------------------------------табы переключение в секции дизайн
 
 //------------------------------------------------------------------------добавление контент при клике на кнопку
 $(function(){
@@ -402,55 +387,4 @@ titles.forEach(item => item.addEventListener('click', () => {
 }));
 document.querySelector('#tab-1').style.maxHeight = document.querySelector('#tab-1').scrollHeight + 'px';
 //------------------------------------------------------------------------Accordion
-
-
-//------------------------------------------------------------------------Tabs
-//const tabsButton = document.querySelectorAll('.tabs-button');
-//const tabsContent = document.querySelectorAll('.tabs-content');
-//
-//tabsButton.forEach((tab, index) => {
-//  tab.addEventListener('click', () => {
-//    tabsButton.forEach(tab => {tab.classList.remove('active-tab')});
-//    tab.classList.add('active-tab');
-//    
-//    tabsContent.forEach(content => {content.classList.remove('active-tab')})
-//    tabsContent[index].classList.add('active-tab');
-//  });
-//});
-//------------------------------------------------------------------------Tabs
-
-
-//------------------------------------------------------------------------Animation
-//const animItems = document.querySelectorAll('._anim-items');
-//if (animItems.length > 0) {
-//  window.addEventListener('scroll', animOnScroll);
-//  function animOnScroll() {
-//    for (let index = 0; index < animItems.length; index++) {
-//        const animItem = animItems[index];
-//        const animItemHeight = animItem.offsetHeight;
-//        const animItemOffset = offset(animItem).top;
-//        const animStart = 5;
-//
-//        let animItemPoint = window.innerHeight - animItemHeight / animStart;
-//
-//        if (animItemHeight > window.innerHeight) {
-//          animItemPoint = window.innerHeight - window.innerHeight / animStart;
-//        }
-//
-//        if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
-//          animItem.classList.add('_action');
-//        } else {
-//          animItem.classList.remove('_action');
-//        }
-//    }
-//  }
-//  function offset(el) {
-//    const rect = el.getBoundingClientRect(),
-//    scrollLeft  = window.pageXOffset || document.documentElement.scrollLeft,
-//    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//    return {top: rect.top + scrollTop, left: rect.left + screenLeft}
-//  }
-//  animOnScroll();
-//}
-//------------------------------------------------------------------------Animation
 
