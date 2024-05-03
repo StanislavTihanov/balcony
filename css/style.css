@@ -546,11 +546,8 @@ body.lock {
 .works__body-more-two {
   display: none;
 }
-
-.fancybox-show-thumbs .fancybox-thumbs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.fancybox-thumbs__list {
+  margin: 0 auto;
 }
 .fancybox-thumbs {
   top: auto;
@@ -919,8 +916,10 @@ body.lock {
   justify-content: space-between;
   gap: 24px 10px;
 }
+
 .questions__form {
   flex-basis: 388px;
+  height: 650px;
 }
 .form {
   border-radius: 15px;
@@ -1033,6 +1032,7 @@ body.lock {
 .accordion {
   background-color: #D9C0A0;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 .accordion__title {
   display: flex;
@@ -1093,7 +1093,6 @@ body.lock {
   max-height: 0;
   opacity: 0;
   visibility: hidden;
-  margin-bottom: 10px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   transition: max-height 0.5s ease-out, padding 0.5s ease-out, opacity 0.1s ease-out 0.5s, visibility 0.1s ease-out 0.5s;
